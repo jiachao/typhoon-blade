@@ -53,7 +53,8 @@ class ProtoLibrary(CcTarget):
         protobuf_lib = var_to_list(proto_config['protobuf_libs'])
 
         # Hardcode deps rule to thirdparty protobuf lib.
-        self._add_hardcode_library(protobuf_lib)
+        if len(protobuf_lib) > 0:
+            self._add_hardcode_library(protobuf_lib)
 
         # Link all the symbols by default
         self.data['link_all_symbols'] = True

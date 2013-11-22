@@ -449,6 +449,7 @@ python_binary_bld = Builder(action = MakeAction(generate_python_binary,
             extra_incs_str = '""'
 
         (cppflags_except_warning, linkflags) = self.ccflags_manager.get_flags_except_warning()
+        linkflags = linkflags + cc_config['linkflags']
 
         self._add_rule('top_env.Replace(%s, '
                        'CPPPATH=[%s, "%s", "%s"], '

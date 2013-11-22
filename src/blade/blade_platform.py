@@ -158,7 +158,7 @@ class CcFlagsManager(object):
 
     def get_flags_except_warning(self):
         """Get the flags that are not warning flags. """
-        flags_except_warning = ['-m%s' % self.options.m, '-mcx16', '-pipe']
+        flags_except_warning = ['-m%s' % self.options.m, '-pipe']
         linkflags = ['-m%s' % self.options.m]
         if self.options.profile == 'debug':
             flags_except_warning += ['-ggdb3', '-fstack-protector']

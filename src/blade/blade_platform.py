@@ -182,8 +182,7 @@ class CcFlagsManager(object):
             else:
                 flags_except_warning.append('-fprofile-arcs')
                 flags_except_warning.append('-ftest-coverage')
-                linkflags += ['-Wl,--whole-archive', '-lgcov',
-                              '-Wl,--no-whole-archive']
+                linkflags += ['-all_load', '-lgcov']
 
         flags_except_warning = self._filter_out_invalid_flags(
                 flags_except_warning, 'cpp')

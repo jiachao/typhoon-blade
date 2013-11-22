@@ -411,10 +411,10 @@ class CcTarget(Target):
         lib_str = 'LIBS=[%s]' % ','.join(lib_list)
         whole_link_flags = []
         if link_all_symbols_lib_list:
-            whole_link_flags = ['"-Wl,--whole-archive"']
+            whole_link_flags = ['"-all_load"']
             for i in link_all_symbols_lib_list:
                 whole_link_flags.append(i)
-            whole_link_flags.append('"-Wl,--no-whole-archive"')
+            #whole_link_flags.append('"-noall_load"')
         return (link_all_symbols_lib_list, lib_str, ', '.join(whole_link_flags))
 
     def _get_dynamic_deps_lib_list(self):
